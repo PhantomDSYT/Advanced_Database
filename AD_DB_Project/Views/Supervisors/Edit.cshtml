@@ -1,0 +1,42 @@
+﻿@model AD_DB_Project.Models.Supervisor
+
+@{
+    ViewData["Title"] = "Edit Supervisor";
+}
+
+<h1 class="text-center">Edit Supervisor</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Trn" class="control-label"></label>
+                <input readonly asp-for="Trn" class="form-control" />
+
+                <label asp-for="Start" class="control-label"></label>
+                <input readonly asp-for="Start" class="form-control" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+
+                <label asp-for="Employee" class="control-label"></label>
+                <input readonly asp-for="Employee" class="form-control" />
+
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

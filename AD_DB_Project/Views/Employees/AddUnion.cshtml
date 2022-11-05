@@ -1,0 +1,24 @@
+﻿@model UnionUpdateVieweModel
+@{
+    ViewData["Title"] = "Add Union";
+}
+
+<h1 class="text-center">Configure Union</h1>
+<hr />
+
+<div class="col-md-4">
+        <form asp-action="AddUnion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Trn" class="control-label"></label>
+                <select asp-for="Trn" class ="form-control" asp-items="ViewBag.Trn"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membership" class="control-label"></label>
+                <select asp-for="Membership" class ="form-control" asp-items="ViewBag.UMembership"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add to Union" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>

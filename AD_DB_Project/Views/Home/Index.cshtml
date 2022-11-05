@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 text-center p-4">
+            <a asp-controller="Airplanes" asp-action="Index"><img src="~/images/icons/001-airplane.png" style="height:200px"></a>
+            <h4>Airplane</h4>
+        </div>
+        <div class="col-md-4 col-sm-6 text-center p-4">
+            <a asp-controller="Airports" asp-action="Index"><img src="~/images/icons/002-airport.png" style="height:200px"></a>
+            <h4>Airport</h4>
+        </div>
+        <div class="col-md-4 col-sm-6 text-center p-4">
+            <a asp-controller="Employees" asp-action="Index"><img src="~/images/icons/003-employee.png" style="height:200px"></a>
+            <h4>Employees</h4>
+        </div>
+        <div class="col-md-4 col-sm-6 text-center p-4">
+            <a asp-controller="Supervisors" asp-action="Index"><img src="~/images/icons/005-hierarchy-structure.png" style="height:200px"></a>
+            <h4>Supervisor</h4>
+        </div>
+        <div class="col-md-4 col-sm-6 text-center p-4">
+            <a asp-controller="Tests" asp-action="Index"><img src="~/images/icons/004-search.png" style="height:200px"></a>
+            <h4>Tests</h4>
+        </div>
+        <div class="col-md-4 col-sm-6 text-center p-4">
+            <a asp-controller="WorkerUnions" asp-action="Index"><img src="~/images/icons/006-people.png" style="height:200px"></a>
+            <h4>Union</h4>
+        </div>
+    </div>
+    
+
+</div>

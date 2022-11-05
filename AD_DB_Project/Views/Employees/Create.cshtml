@@ -1,0 +1,91 @@
+﻿@model EmployeeCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<h1 class="text-center">Create Employee</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Trn" class="control-label"></label>
+                <input asp-for="Trn" class="form-control" />
+                <span asp-validation-for="Trn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FName" class="control-label"></label>
+                <input asp-for="FName" class="form-control" />
+                <span asp-validation-for="FName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LName" class="control-label"></label>
+                <input asp-for="LName" class="form-control" />
+                <span asp-validation-for="LName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MName" class="control-label"></label>
+                <input asp-for="MName" class="form-control" />
+                <span asp-validation-for="MName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tel" class="control-label"></label>
+                <input asp-for="Tel" class="form-control" />
+                <span asp-validation-for="Tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeRole" class="control-label"></label>
+                <select asp-for="EmployeeRole" name="EmployeeRole" class="form-control" asp-items="@ViewBag.empRoles"></select>
+                <span asp-validation-for="EmployeeRole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportCode" class="control-label"></label>
+                <select asp-for="AirportCode" class ="form-control" asp-items="ViewBag.AirportCode"></select>
+                <span asp-validation-for="AirportCode" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="TechExpertise" class="control-label"></label>
+                <select asp-for="TechExpertise" name="TechExpertise" class="form-control" asp-items="@ViewBag.Airplane"></select>
+                <span asp-validation-for="TechExpertise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechRestriction" class="control-label"></label>
+                <select asp-for="TechRestriction" class ="form-control" asp-items="ViewBag.Airplane"></select>
+                <span asp-validation-for="TechRestriction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExamDate" class="control-label"></label>
+                <input asp-for="ExamDate" class="form-control" />
+                <span asp-validation-for="ExamDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="text-right col-md-4">
+        <p>Enter Expertise and Restrictions for Technician Role</p>
+        <p>Enter latest exam date for Traffic Controller Role</p>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

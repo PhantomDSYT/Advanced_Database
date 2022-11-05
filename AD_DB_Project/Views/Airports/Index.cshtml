@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AD_DB_Project.Models.Airport>
+
+@{
+    ViewData["Title"] = "Airport";
+}
+
+<h1 class="text-center">Airports</h1>
+
+<p class="text-right">
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AirportName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirportParish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirportCity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportParish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportCity)
+            </td>
+            <td class="btn-group">
+                <a asp-action="Edit" asp-route-id="@item.AirportCode" class="btn btn-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.AirportCode" class="btn btn-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.AirportCode" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

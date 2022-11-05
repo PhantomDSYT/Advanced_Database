@@ -1,0 +1,46 @@
+﻿@model AD_DB_Project.Models.Airplane
+
+@{
+    ViewData["Title"] = "Edit Airplane";
+}
+
+<h1 class="text-center">Edit Airplane</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RegNum" class="control-label"></label>
+                <input asp-for="RegNum" class="form-control" readonly/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportCode" class="control-label"></label>
+                <select asp-for="AirportCode" class="form-control" asp-items="ViewBag.AirportCode"></select>
+                <span asp-validation-for="AirportCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AD_DB_Project.Models.Airplane>
+
+@{
+    ViewData["Title"] = "Airplanes";
+}
+
+<h1 class="text-center">Airplanes</h1>
+
+<p class="text-right">
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirportCodeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportCodeNavigation.AirportCode)
+            </td>
+            <td class="btn-group">
+                <a asp-action="Edit" asp-route-id="@item.RegNum" class="btn btn-primary">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.RegNum" class="btn btn-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.RegNum" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
