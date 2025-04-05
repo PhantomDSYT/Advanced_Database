@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AD_DB_Project.Models;
 using AD_DB_Project.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AD_DB_Project.Controllers
 {
+    [Authorize(Roles = "Admin, Manager")]
     public class EmployeesController : Controller
     {
         private readonly AD_DB_ProjectContext _context;
@@ -174,6 +176,7 @@ namespace AD_DB_Project.Controllers
             return View(employee);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Employees/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -192,6 +195,7 @@ namespace AD_DB_Project.Controllers
             return View(employee);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

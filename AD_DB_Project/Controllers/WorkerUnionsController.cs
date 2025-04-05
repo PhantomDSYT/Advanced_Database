@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AD_DB_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AD_DB_Project.Controllers
 {
+    [Authorize(Roles = "Admin, Manager")]
     public class WorkerUnionsController : Controller
     {
         private readonly AD_DB_ProjectContext _context;

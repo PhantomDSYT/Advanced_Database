@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AD_DB_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AD_DB_Project.Controllers
 {
+    [Authorize(Roles = "Admin, Manager")]
     public class SupervisorsController : Controller
     {
         private readonly AD_DB_ProjectContext _context;
@@ -119,6 +121,7 @@ namespace AD_DB_Project.Controllers
             return View(supervisor);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Supervisors/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -138,6 +141,7 @@ namespace AD_DB_Project.Controllers
             return View(supervisor);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Supervisors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
